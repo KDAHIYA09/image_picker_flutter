@@ -29,32 +29,40 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView(
         children: [
-          ElevatedButton(
-            onPressed: (){
-            _pickImageFromGalary();
-          },
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            child: ElevatedButton(
+              onPressed: (){
+              _pickImageFromGalary();
+            },
+                child: Text(
+                  'Pick Image From Gallary',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),
+                ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            child: ElevatedButton(
+              onPressed: (){
+                _pickImageFromCamera();
+              },
               child: Text(
-                'Pick Image From Galary',
+                'Capture Image From Camera',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
                 ),
               ),
-          ),
-          ElevatedButton(
-            onPressed: (){
-              _pickImageFromCamera();
-            },
-            child: Text(
-              'Capture Image From Camera',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-              ),
             ),
           ),
           SizedBox(height: 40,),
           Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: _selectedImage != null ? Image.file(_selectedImage!) : Text('Please select an Image'),
           ),
         ],
